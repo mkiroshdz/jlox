@@ -15,7 +15,7 @@ public class Tokenizer {
     String prefix = listAsStr(buffer);
     String current = "" + c;
     boolean brk = Token.detectBreak(prefix, current);
-    if(brk && !prefix.matches(".*\\s*\\t.*")) {
+    if(brk && !prefix.matches("^\\s*\\t*$")) {
       Token token = Token.create(prefix, lineNumber, 0);
       System.out.println(token);
       tokens.add(prefix);

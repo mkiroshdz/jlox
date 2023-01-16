@@ -99,6 +99,8 @@ public class Token {
     if(type == null) {
       if(lexeme.matches("^\\\".*\\\"$")) {
         type = TokenType.STRING;
+      } else if (lexeme.matches("^/\\*.*$")) {
+        type = TokenType.COMMENT;
       } else if (lexeme.matches("^([0-9]\\.)?[0-9]*$")) {
         type = TokenType.NUMBER;
       } else if(keywords.containsKey(lexeme)) {
